@@ -1,7 +1,7 @@
 FROM alpine:latest
 
-RUN apk add --update python python-dev py-pip build-base libffi-dev openssl-dev openssh linux-headers git && \
-    pip install ansible markupsafe boto && git clone https://github.com/jlund/streisand.git
+RUN apk --no-cache add --update python python-dev py-pip build-base libffi-dev openssl-dev openssh linux-headers git && \
+pip install ansible markupsafe boto && git clone https://github.com/jlund/streisand.git
 
 VOLUME /root/.ssh
 VOLUME /streisand/generated-docs
