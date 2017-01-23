@@ -1,21 +1,7 @@
-FROM alpine:3.4
+FROM alpine:latest
 
-RUN apk add --update \
-    python \
-    python-dev \
-    py-pip \
-    build-base \
-    libffi-dev \
-    openssl-dev \
-    openssh \
-    linux-headers \
-    git
-
-RUN pip install ansible markupsafe
-
-RUN pip install boto dopy==0.3.5 "apache-libcloud>=0.17.0" linode-python pyrax
-
-RUN git clone https://github.com/jlund/streisand.git
+RUN apk add --update python python-dev py-pip build-base libffi-dev openssl-dev openssh linux-headers git && \
+    pip install ansible markupsafe boto && git clone https://github.com/jlund/streisand.git
 
 VOLUME /root/.ssh
 VOLUME /streisand/generated-docs
