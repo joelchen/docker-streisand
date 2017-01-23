@@ -7,4 +7,4 @@ VOLUME /streisand/generated-docs
 
 WORKDIR /streisand
 
-CMD ["/bin/sh", "/streisand/streisand"]
+CMD ["/bin/sh"]
